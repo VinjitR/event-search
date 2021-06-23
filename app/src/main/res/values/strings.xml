@@ -4,7 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="searchname">SEARCH</string>
     <string name="favname">FAVOURITES</string>
-    
+
     <string-array name="categories">
         <item>All</item>
         <item>Music</item>

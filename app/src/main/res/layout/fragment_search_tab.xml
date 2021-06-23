@@ -12,17 +12,14 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/invalidLocation"
+            android:id="@+id/latcheck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Please enter mandatory field"
-            android:textColor="@android:color/holo_red_dark"
-            app:layout_constraintBottom_toBottomOf="@+id/location"
-            app:layout_constraintEnd_toEndOf="@+id/location"
-            app:layout_constraintHorizontal_bias="0.859"
-            app:layout_constraintStart_toStartOf="@+id/location"
-            app:layout_constraintTop_toTopOf="@+id/location"
-            app:layout_constraintVertical_bias="0.461" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search"
+            app:layout_constraintVertical_bias="0.107" />
 
         <TextView
             android:id="@+id/textView4"
@@ -79,13 +76,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="24dp"
             android:ems="10"
             android:hint="Enter the location"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/locationRadioGroup" />
 
@@ -187,19 +184,6 @@
                 android:layout_height="wrap_content"
                 android:text="Other, specify location" />
         </RadioGroup>
-
-        <TextView
-            android:id="@+id/invalidKeyword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Please enter mandatory field"
-            android:textColor="@android:color/holo_red_dark"
-            app:layout_constraintBottom_toBottomOf="@+id/keyword"
-            app:layout_constraintEnd_toEndOf="@+id/keyword"
-            app:layout_constraintHorizontal_bias="0.902"
-            app:layout_constraintStart_toStartOf="@+id/keyword"
-            app:layout_constraintTop_toTopOf="@+id/keyword"
-            app:layout_constraintVertical_bias="0.423" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
