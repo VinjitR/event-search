@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".detailActivity">
+
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:id="@+id/eventDetail_appbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/eventDetail_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_weight="1"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+>
+            <Button
+                android:id="@+id/favorite"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="50dp"
+                android:background="@drawable/heart_fill_white" />
+
+            <Button
+                android:id="@+id/twitter"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/ic_twitter_ic__2_" />
+
+
+
+        </com.google.android.material.appbar.MaterialToolbar>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/eventDetailTabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/DetailTab"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="DETAILS">
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/ArtistTab"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="ARTIST">
+
+            </com.google.android.material.tabs.TabItem>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/VenueTab"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="VENUE">
+
+            </com.google.android.material.tabs.TabItem>
+
+        </com.google.android.material.tabs.TabLayout>
+
+
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager2d"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

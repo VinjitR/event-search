@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 //        });
 //    }
 //
-    private class SearchFragmentPagerAdapter extends FragmentStateAdapter{
+class SearchFragmentPagerAdapter extends FragmentStateAdapter{
 
         public SearchFragmentPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
             super(fragmentActivity);
