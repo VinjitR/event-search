@@ -19,12 +19,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
     private Context mContext;
     private List<eventD> mEventData;
+    RequestQueue rQ;
 ;
     View view;
 
@@ -42,8 +53,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         LayoutInflater inflater = LayoutInflater.from(mContext);
         view = inflater.inflate(R.layout.activity_search_result_row, parent, false);
 
+
         return new MyViewHolder(view);
     }
+
+
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int position) {
@@ -58,17 +72,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         myViewHolder.eventID.setText(eventeventD.getId());
         myViewHolder.eventCategory_thumbnail.setImageResource(eventeventD.getCatImage());
-//        myViewHolder.eventLatitude.setText(eventeventD.getLat());
-//        myViewHolder.eventLongitude.setText(eventeventD.getLng());
 
-        // load image from the internet and set it into Imageview using Glide
-        //Glide.with(mContext).load(eventeventD.getImageURL()).apply(option).into(myViewHolder.eventCategory_thumbnail);
-
-        // if an event is already in favorite, make the favorite button red
         Button favoriteButton = view.findViewById(R.id.favorite);
         SharedPreferences sharedPreferences = mContext.getSharedPreferences("favorite", Context.MODE_PRIVATE);
 
-        String sharedPreferencesName = eventeventD.getEvent() + eventeventD.getId();
+        String sharedPreferencesName = eventeventD.getEvent() + eventeventD.getId()+eventeventD.getVenue()+eventeventD.getDatetime();
         if (sharedPreferences.contains(sharedPreferencesName)) {
             favoriteButton.setBackgroundResource(R.drawable.heart_fill_red);
         } else {
@@ -86,11 +94,50 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 intent.putExtra("eventName", eventeventD.getEvent());
                 intent.putExtra("eventID", eventeventD.getId());
                 intent.putExtra("eventVenue", eventeventD.getVenue());
+                intent.putExtra("eventTime",eventeventD.getDatetime());
+                Log.i("lat",eventeventD.getLatlng());
+                intent.putExtra("eveLatlng",eventeventD.getLatlng());
+                //rQ= Volley.newRequestQueue(view.getContext());
+                //getLatlng(eventeventD.getVenue());
                 mContext.startActivity(intent);
             }
         });
 
     }
+//    public void getLatlng(String venue) {
+//        String Latlng="";
+//        String venUrl= "https://csci571-rsbv-hw8.wl.r.appspot.com/getvenue?"+"key="+venue.replace(" ","+");
+//        Log.i("venurl",venUrl);
+//        JsonObjectRequest requestr = new JsonObjectRequest(Request.Method.GET, venUrl, null,
+//                new Response.Listener<JSONObject>() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//
+//                        //Log.i("venre",response.toString());
+//                        formatLatlng(response);
+//                    }
+//                }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                error.printStackTrace();
+//            }
+//        });
+//        rQ.add(requestr);
+//
+//
+//    }
+
+//    public void formatLatlng(JSONObject response) {
+//        try {
+//            String latiude = response.getJSONObject("_embedded").getJSONArray("venues").getJSONObject(0).getJSONObject("location").getString("latitude");
+//            String longitude = response.getJSONObject("_embedded").getJSONArray("venues").getJSONObject(0).getJSONObject("location").getString("longitude");
+//            Intent intent = new Intent(mContext, detailActivity.class);
+//            intent.putExtra("eventLatlng",latiude+""+longitude);
+//        }
+//        catch (JSONException e){
+//            e.printStackTrace();
+//        }
+//    }
 
     @Override
     public int getItemCount() {

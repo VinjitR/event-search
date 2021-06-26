@@ -6,6 +6,10 @@ public class eventD {
     private String genre;
     private String venue;
 
+
+
+
+    private String latlng;
     private String id;
 
 
@@ -14,16 +18,23 @@ public class eventD {
     public eventD(){
 
     }
-    public eventD(String event,String id, String datetime,String genre, String venue, int catImage) {
+    public eventD(String event,String id, String datetime,String genre, String venue, int catImage,String latlng) {
         this.event = event;
         this.id = id;
         this.datetime = datetime;
         this.genre = genre;
         this.venue = venue;
         this.catImage=catImage;
+        this.latlng=latlng;
     }
 
+    public String getLatlng() {
+        return latlng;
+    }
 
+    public void setLatlng(String latlng) {
+        this.latlng = latlng;
+    }
 
 
     public int getCatImage() {

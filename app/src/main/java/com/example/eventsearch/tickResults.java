@@ -90,6 +90,8 @@ public class tickResults extends AppCompatActivity {
                 }
                 eventd.setCatImage(catImg);
 
+                eventd.setLatlng(oneEvent.getString("latlng"));
+
 
 
                 eventDList.add(eventd);

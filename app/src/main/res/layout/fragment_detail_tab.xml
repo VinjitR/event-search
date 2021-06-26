@@ -1,14 +1,235 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DetailTab">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:id="@+id/seatmapLayot"
+            android:layout_width="413dp"
+            android:layout_height="43dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buyticketlayot">
+
+            <TextView
+                android:id="@+id/headinga7"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="Seatmap"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/seatmap"
+                android:layout_width="230dp"
+                android:layout_height="22dp"
+                android:layout_marginEnd="24dp"
+                android:text="TextView"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buyticketlayot"
+            android:layout_width="414dp"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ticketstatuslayot">
+
+            <TextView
+                android:id="@+id/headinga6"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="Buy Ticket At"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/buyurl"
+                android:layout_width="189dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="TextView"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ticketstatuslayot"
+            android:layout_width="413dp"
+            android:layout_height="42dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pricerangelayot">
+
+            <TextView
+                android:id="@+id/headinga5"
+                android:layout_width="129dp"
+                android:layout_height="wrap_content"
+                android:text="Ticket Status"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/ticketstatus"
+                android:layout_width="241dp"
+                android:layout_height="22dp"
+                android:layout_marginEnd="20dp"
+                android:text="TextView"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pricerangelayot"
+            android:layout_width="409dp"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categorylayot">
+
+            <TextView
+                android:id="@+id/headinga9"
+                android:layout_width="124dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="PriceRange"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/pricerange"
+                android:layout_width="246dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
+                android:text="TextView"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/categorylayot"
+            android:layout_width="414dp"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/datelayot">
+
+            <TextView
+                android:id="@+id/headinga4"
+                android:layout_width="124dp"
+                android:layout_height="wrap_content"
+                android:text="Category"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/category_name"
+                android:layout_width="246dp"
+                android:layout_height="37dp"
+                android:layout_marginEnd="4dp"
+                android:text="TextView"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/datelayot"
+            android:layout_width="413dp"
+            android:layout_height="42dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/venuelayot">
+
+            <TextView
+                android:id="@+id/dateheading"
+                android:layout_width="124dp"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/Date_det"
+                android:layout_width="194dp"
+                android:layout_height="35dp"
+                android:text="TextView"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/venuelayot"
+            android:layout_width="413dp"
+            android:layout_height="47dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/artistlayot">
+
+            <TextView
+                android:id="@+id/headinga2"
+                android:layout_width="124dp"
+                android:layout_height="wrap_content"
+                android:text="Venue"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/venue_det"
+                android:layout_width="213dp"
+                android:layout_height="33dp"
+                android:text="TextView"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/artistlayot"
+            android:layout_width="409dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="64dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/headinga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Artist(s)/Team"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/artistname"
+                android:layout_width="229dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="58dp"
+                android:layout_marginRight="58dp"
+                android:text="TextView"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
