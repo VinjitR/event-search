@@ -18,11 +18,22 @@
             android:id="@+id/eventToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/eventName_deta"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="Event Detail"
+                android:textSize="20sp">
+
+            </TextView>
+
             <Button
                 android:id="@+id/favoriteb"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/heart_fill_white" />
 
             <Button
@@ -34,8 +45,8 @@
                 android:background="@drawable/ic_twitter_ic__2_" />
 
 
-
         </androidx.appcompat.widget.Toolbar>
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/eventDetailTabs"
             android:layout_width="match_parent"
@@ -45,8 +56,8 @@
                 android:id="@+id/DetailTab"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="DETAILS"
-                android:icon="@drawable/info_outline">
+                android:icon="@drawable/info_outline"
+                android:text="DETAILS">
 
             </com.google.android.material.tabs.TabItem>
 
@@ -54,8 +65,8 @@
                 android:id="@+id/ArtistTab"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="ARTIST"
-                android:icon="@drawable/artist">
+                android:icon="@drawable/artist"
+                android:text="ARTIST">
 
             </com.google.android.material.tabs.TabItem>
 
@@ -63,41 +74,42 @@
                 android:id="@+id/VenueTab"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="VENUE"
-                android:icon="@drawable/venue">
+                android:icon="@drawable/venue"
+                android:text="VENUE">
 
             </com.google.android.material.tabs.TabItem>
 
 
         </com.google.android.material.tabs.TabLayout>
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content">-->
 
-<!--        <ImageView-->
-<!--            android:id="@+id/imageView4"-->
-<!--            android:layout_width="24dp"-->
-<!--            android:layout_height="22dp"-->
-<!--            app:tint="@color/black"-->
-<!--            app:srcCompat="@drawable/info_outline"-->
-<!--            tools:layout_editor_absoluteX="59dp" />-->
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content">-->
 
-<!--        <ImageView-->
-<!--            android:id="@+id/imageView5"-->
-<!--            android:layout_width="21dp"-->
-<!--            android:layout_height="18dp"-->
-<!--            app:tint="@color/black"-->
-<!--            app:srcCompat="@drawable/artist"-->
-<!--            tools:layout_editor_absoluteX="195dp" />-->
+        <!--        <ImageView-->
+        <!--            android:id="@+id/imageView4"-->
+        <!--            android:layout_width="24dp"-->
+        <!--            android:layout_height="22dp"-->
+        <!--            app:tint="@color/black"-->
+        <!--            app:srcCompat="@drawable/info_outline"-->
+        <!--            tools:layout_editor_absoluteX="59dp" />-->
 
-<!--        <ImageView-->
-<!--            android:id="@+id/imageView6"-->
-<!--            android:layout_width="19dp"-->
-<!--            android:layout_height="18dp"-->
-<!--            app:tint="@color/black"-->
-<!--            app:srcCompat="@drawable/venue"-->
-<!--            tools:layout_editor_absoluteX="334dp" />-->
-<!--        </LinearLayout>-->
+        <!--        <ImageView-->
+        <!--            android:id="@+id/imageView5"-->
+        <!--            android:layout_width="21dp"-->
+        <!--            android:layout_height="18dp"-->
+        <!--            app:tint="@color/black"-->
+        <!--            app:srcCompat="@drawable/artist"-->
+        <!--            tools:layout_editor_absoluteX="195dp" />-->
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/imageView6"-->
+        <!--            android:layout_width="19dp"-->
+        <!--            android:layout_height="18dp"-->
+        <!--            app:tint="@color/black"-->
+        <!--            app:srcCompat="@drawable/venue"-->
+        <!--            tools:layout_editor_absoluteX="334dp" />-->
+        <!--        </LinearLayout>-->
 
     </com.google.android.material.appbar.AppBarLayout>
 

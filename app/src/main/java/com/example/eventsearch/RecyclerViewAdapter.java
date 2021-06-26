@@ -19,15 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.List;
 
@@ -76,7 +68,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Button favoriteButton = view.findViewById(R.id.favorite);
         SharedPreferences sharedPreferences = mContext.getSharedPreferences("favorite", Context.MODE_PRIVATE);
 
-        String sharedPreferencesName = eventeventD.getEvent() + eventeventD.getId()+eventeventD.getVenue()+eventeventD.getDatetime();
+        String sharedPreferencesName =   eventeventD.getId();
         if (sharedPreferences.contains(sharedPreferencesName)) {
             favoriteButton.setBackgroundResource(R.drawable.heart_fill_red);
         } else {
@@ -84,7 +76,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
 
 
-        favoriteButton(eventeventD.getEvent(), eventeventD.getId());
+        favoriteButton(eventeventD.getEvent(), eventeventD.getId(), eventeventD.getVenue(),eventeventD.getDatetime(),eventeventD.getLatlng(),eventeventD.getCatImage());
 
         myViewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +89,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 intent.putExtra("eventTime",eventeventD.getDatetime());
                 Log.i("lat",eventeventD.getLatlng());
                 intent.putExtra("eveLatlng",eventeventD.getLatlng());
+                intent.putExtra("eveCatImg",""+eventeventD.getCatImage());
                 //rQ= Volley.newRequestQueue(view.getContext());
                 //getLatlng(eventeventD.getVenue());
                 mContext.startActivity(intent);
@@ -104,40 +97,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         });
 
     }
-//    public void getLatlng(String venue) {
-//        String Latlng="";
-//        String venUrl= "https://csci571-rsbv-hw8.wl.r.appspot.com/getvenue?"+"key="+venue.replace(" ","+");
-//        Log.i("venurl",venUrl);
-//        JsonObjectRequest requestr = new JsonObjectRequest(Request.Method.GET, venUrl, null,
-//                new Response.Listener<JSONObject>() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//
-//                        //Log.i("venre",response.toString());
-//                        formatLatlng(response);
-//                    }
-//                }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                error.printStackTrace();
-//            }
-//        });
-//        rQ.add(requestr);
-//
-//
-//    }
 
-//    public void formatLatlng(JSONObject response) {
-//        try {
-//            String latiude = response.getJSONObject("_embedded").getJSONArray("venues").getJSONObject(0).getJSONObject("location").getString("latitude");
-//            String longitude = response.getJSONObject("_embedded").getJSONArray("venues").getJSONObject(0).getJSONObject("location").getString("longitude");
-//            Intent intent = new Intent(mContext, detailActivity.class);
-//            intent.putExtra("eventLatlng",latiude+""+longitude);
-//        }
-//        catch (JSONException e){
-//            e.printStackTrace();
-//        }
-//    }
 
     @Override
     public int getItemCount() {
@@ -155,23 +115,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            eventName = itemView.findViewById(R.id.eventName);
+            eventName = itemView.findViewById(R.id.eventName_deta);
             venueName = itemView.findViewById(R.id.venue);
             eventTime = itemView.findViewById(R.id.eventTime);
             eventCategory_thumbnail = itemView.findViewById(R.id.catthumbnail);
-            eventID = itemView.findViewById(R.id.eventID);
+            eventID = itemView.findViewById(R.id.faveID);
             linearLayout = itemView.findViewById(R.id.eventsLinearLayout);
         }
     }
 
-    public void favoriteButton(String eventName, String eventID) {
+    public void favoriteButton(String eventName, String eventID,String eventVenue,String eventDatetime,String eventLatlng,int evecatImage) {
         Button favoriteButton = view.findViewById(R.id.favorite);
         favoriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SharedPreferences sharedPreferences = mContext.getSharedPreferences("favorite", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                String sharedPreferencesName = eventName + eventID;
+                String sharedPreferencesName = eventID;
 
                 if (sharedPreferences.contains(sharedPreferencesName)) {
                     Toast.makeText(view.getContext(), eventName + " was removed from favorites", Toast.LENGTH_SHORT).show();
@@ -181,7 +141,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 } else {
                     Toast.makeText(view.getContext(), eventName + " was added to favorites", Toast.LENGTH_SHORT).show();
                     favoriteButton.setBackgroundResource(R.drawable.heart_fill_red);
-                    editor.putString(sharedPreferencesName, eventID);
+                    editor.putString(sharedPreferencesName, eventID+";"+eventName+";"+eventVenue+";"+eventDatetime+";"+eventLatlng+";"+evecatImage);
                     editor.apply();
                 }
             }

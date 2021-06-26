@@ -14,13 +14,13 @@
          />
 
     <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_width="267dp"
+        android:layout_height="match_parent"
         android:layout_marginLeft="5dp"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/eventName"
+            android:id="@+id/eventName_deta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -41,19 +41,19 @@
             android:text="Event Time" />
 
         <TextView
-            android:id="@+id/eventID"
+            android:id="@+id/faveID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Event ID"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
     </LinearLayout>
 
     <Button
         android:id="@+id/favorite"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="35dp"
+        android:layout_width="60dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/heart_fill_red"
         app:iconTint="#E91E63" />

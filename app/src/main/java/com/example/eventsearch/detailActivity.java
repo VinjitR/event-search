@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
@@ -34,6 +35,7 @@ public class detailActivity extends AppCompatActivity {
     String eventVenue="";
     String eventTime="";
     String eveLatlng="";
+    String eveCatThumb="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ public class detailActivity extends AppCompatActivity {
                 eventVenue=this.getIntent().getStringExtra("eventVenue");
                 eventTime=this.getIntent().getStringExtra("eventTime");
                 eveLatlng=this.getIntent().getStringExtra("eveLatlng");
+                eveCatThumb=this.getIntent().getStringExtra("eveCatImg");
 
 //            String eventName = this.getIntent().getStringExtra("eventName");
 //            Toolbar mActionBarToolbar = findViewById(R.id.eventToolbar);
@@ -91,10 +94,13 @@ public class detailActivity extends AppCompatActivity {
             }
         });
 
+        TextView eventDetName=this.findViewById(R.id.eventName_deta);
+        eventDetName.setText(eventName);
+
         Button favoriteButton = this.findViewById(R.id.favoriteb);
         SharedPreferences sharedPreferences = getSharedPreferences("favorite", Context.MODE_PRIVATE);
 
-        String sharedPreferencesName = eventName + eventID;
+        String sharedPreferencesName = eventID;
         if (sharedPreferences.contains(sharedPreferencesName)) {
             favoriteButton.setBackgroundResource(R.drawable.heart_fill_red);
         } else {
@@ -105,7 +111,7 @@ public class detailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 SharedPreferences sharedPreferences = getSharedPreferences("favorite", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                String sharedPreferencesName = eventName + eventID;
+                String sharedPreferencesName = eventID;
 
                 if (sharedPreferences.contains(sharedPreferencesName)) {
                     Toast.makeText(viewPager2d.getContext(), eventName + " was removed from favorites", Toast.LENGTH_SHORT).show();
@@ -115,7 +121,7 @@ public class detailActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(viewPager2d.getContext(), eventName + " was added to favorites", Toast.LENGTH_SHORT).show();
                     favoriteButton.setBackgroundResource(R.drawable.heart_fill_red);
-                    editor.putString(sharedPreferencesName, eventID);
+                    editor.putString(sharedPreferencesName, eventID+";"+eventName+";"+eventVenue+";"+eventTime+";"+eveLatlng+";"+eveCatThumb);
                     editor.apply();
                 }
 

@@ -22,8 +22,9 @@
 
             <TextView
                 android:id="@+id/headinga7"
-                android:layout_width="130dp"
+                android:layout_width="124dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:text="Seatmap"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16dp" />
@@ -31,7 +32,7 @@
             <TextView
                 android:id="@+id/seatmap"
                 android:layout_width="230dp"
-                android:layout_height="22dp"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:text="TextView"
                 android:textSize="16dp" />
@@ -49,8 +50,9 @@
 
             <TextView
                 android:id="@+id/headinga6"
-                android:layout_width="130dp"
+                android:layout_width="124dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:text="Buy Ticket At"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16dp" />
@@ -76,8 +78,9 @@
 
             <TextView
                 android:id="@+id/headinga5"
-                android:layout_width="129dp"
+                android:layout_width="124dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:text="Ticket Status"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16dp" />
@@ -85,7 +88,7 @@
             <TextView
                 android:id="@+id/ticketstatus"
                 android:layout_width="241dp"
-                android:layout_height="22dp"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
                 android:text="TextView"
                 android:textSize="16dp" />
@@ -105,7 +108,7 @@
                 android:id="@+id/headinga9"
                 android:layout_width="124dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginStart="16dp"
                 android:text="PriceRange"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16dp" />
@@ -113,7 +116,7 @@
             <TextView
                 android:id="@+id/pricerange"
                 android:layout_width="246dp"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:text="TextView"
                 android:textSize="16dp" />
@@ -133,6 +136,7 @@
                 android:id="@+id/headinga4"
                 android:layout_width="124dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:text="Category"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16dp" />
@@ -140,7 +144,7 @@
             <TextView
                 android:id="@+id/category_name"
                 android:layout_width="246dp"
-                android:layout_height="37dp"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
                 android:text="TextView"
                 android:textSize="16dp" />
@@ -160,6 +164,7 @@
                 android:id="@+id/dateheading"
                 android:layout_width="124dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:text="Date"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16dp" />
@@ -167,7 +172,7 @@
             <TextView
                 android:id="@+id/Date_det"
                 android:layout_width="194dp"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:text="TextView"
                 android:textSize="16dp" />
         </LinearLayout>
@@ -186,6 +191,7 @@
                 android:id="@+id/headinga2"
                 android:layout_width="124dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:text="Venue"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="16dp" />
@@ -193,7 +199,7 @@
             <TextView
                 android:id="@+id/venue_det"
                 android:layout_width="213dp"
-                android:layout_height="33dp"
+                android:layout_height="wrap_content"
                 android:text="TextView"
                 android:textSize="16dp" />
         </LinearLayout>
@@ -202,7 +208,7 @@
             android:id="@+id/artistlayot"
             android:layout_width="409dp"
             android:layout_height="53dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="8dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -211,7 +217,7 @@
 
             <TextView
                 android:id="@+id/headinga"
-                android:layout_width="wrap_content"
+                android:layout_width="124dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
@@ -222,7 +228,7 @@
             <TextView
                 android:id="@+id/artistname"
                 android:layout_width="229dp"
-                android:layout_height="45dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="58dp"
                 android:layout_marginRight="58dp"

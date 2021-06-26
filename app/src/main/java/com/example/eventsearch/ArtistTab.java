@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -173,6 +174,8 @@ public class ArtistTab extends Fragment {
             textView1.setText(aName);
             tableRow1.addView(textView1);
             tableLayout.addView(tableRow1);
+            tableRow1.setGravity(Gravity.CENTER);
+            textView1.setTextSize(20);
 
             TableRow tableRow2 = new TableRow(getContext());
             TextView textView2 = new TextView(getContext());
@@ -209,6 +212,8 @@ public class ArtistTab extends Fragment {
             textView7.setLayoutParams(params2);
             textView6.setText("Popularity");
             textView6.setTypeface(null, Typeface.BOLD);
+            textView6.setTextSize(20);
+            textView6.setPadding(20,20,20,20);
             textView7.setText(popularity);
             tableRow4.addView(textView6);
             tableRow4.addView(textView7);
@@ -237,6 +242,23 @@ public class ArtistTab extends Fragment {
             tableRow5.addView(textView8);
             tableRow5.addView(textView9);
             tableLayout.addView(tableRow5);
+
+            textView2.setTextSize(18);
+            textView2.setPadding(20,20,20,20);
+            textView3.setTextSize(18);
+            textView3.setPadding(20,20,20,20);
+            textView4.setTextSize(18);
+            textView4.setPadding(20,20,20,20);
+            textView5.setTextSize(18);
+            textView5.setPadding(20,20,20,20);
+            textView6.setTextSize(18);
+            textView6.setPadding(20,20,20,20);
+            textView7.setTextSize(18);
+            textView7.setPadding(20,20,20,20);
+            textView8.setTextSize(18);
+            textView8.setPadding(20,20,20,20);
+            textView9.setTextSize(18);
+            textView9.setPadding(20,20,20,20);
 
         }
         catch (JSONException e){
