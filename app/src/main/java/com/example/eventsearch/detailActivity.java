@@ -16,6 +16,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -42,25 +43,28 @@ public class detailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         Log.i("details", getIntent().getExtras().getString("eventID"));
+        Toolbar toolbar = (Toolbar) findViewById(R.id.eventToolbar);
+        //getSupportActionBar().hide();
+        //setSupportActionBar(toolbar);
 
         //Log.i("detailslatlng", getIntent().getExtras().getString("eventLatlng"));
 
         if (this.getIntent().hasExtra("eventName")) {
                 eventName=this.getIntent().getStringExtra("eventName");
+                    setSupportActionBar(toolbar);
+                    getSupportActionBar().setTitle(eventName);
+            if (getSupportActionBar() != null){
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                getSupportActionBar().setDisplayShowHomeEnabled(true);
+            }
+
                 eventID=this.getIntent().getStringExtra("eventID");
                 eventVenue=this.getIntent().getStringExtra("eventVenue");
                 eventTime=this.getIntent().getStringExtra("eventTime");
                 eveLatlng=this.getIntent().getStringExtra("eveLatlng");
                 eveCatThumb=this.getIntent().getStringExtra("eveCatImg");
 
-//            String eventName = this.getIntent().getStringExtra("eventName");
-//            Toolbar mActionBarToolbar = findViewById(R.id.eventToolbar);
-//            setSupportActionBar(mActionBarToolbar);
-//            getSupportActionBar().setTitle(eventName);
-//
-//            ActionBar actionBar = getSupportActionBar();
-//            actionBar.setDisplayHomeAsUpEnabled(true);
-//        }
+
         }
         viewPager2d = findViewById(R.id.viewpager2d);
         viewPager2d.setUserInputEnabled(false);
@@ -95,7 +99,7 @@ public class detailActivity extends AppCompatActivity {
         });
 
         TextView eventDetName=this.findViewById(R.id.eventName_deta);
-        eventDetName.setText(eventName);
+//        eventDetName.setText(eventName);
 
         Button favoriteButton = this.findViewById(R.id.favoriteb);
         SharedPreferences sharedPreferences = getSharedPreferences("favorite", Context.MODE_PRIVATE);
@@ -179,50 +183,13 @@ public class detailActivity extends AppCompatActivity {
             return NUM_PAGES;
         }
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // handle arrow click here
+        if (item.getItemId() == android.R.id.home) {
+            finish(); // close this activity and return to preview activity (if there is any)
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }
-
-//     class SearchFragmentPagerAdapter extends FragmentStateAdapter {
-//        public SearchFragmentPagerAdapter(detailActivity detailActivity) {
-//            super(detailActivity);
-//        }
-//        @NonNull
-//        @Override
-//        public Fragment createFragment(int position) {
-//
-//        switch (position){
-//            case 0: return new DetailTab();
-//            case 1: return new ArtistTab();
-//            case 2: return new VenueTab();
-//            default: return new DetailTab();
-//        }
-//    }
-//
-//    @Override
-//    public int getItemCount() {
-//        return 3;
-//    }
-//    }
-
-//class SearchFragmentPagerAdapter extends FragmentStateAdapter{
-//
-//    public SearchFragmentPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
-//        super(fragmentActivity);
-//    }
-//
-//    @NonNull
-//    @Override
-//    public Fragment createFragment(int position) {
-//
-//        switch (position){
-//            case 0: return new SearchTab();
-//            case 1: return new FavoriteTab();
-//            default: return new SearchTab();
-//        }
-//    }
-//
-//    @Override
-//    public int getItemCount() {
-//        return NUM_PAGES;
-//    }
-//}
-//}

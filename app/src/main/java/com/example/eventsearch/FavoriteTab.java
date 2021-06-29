@@ -31,11 +31,17 @@ public class FavoriteTab extends Fragment {
     View view;
     private List<faveD> faveDList;
 
+
+
+
     @Override
     public void onResume() {
         super.onResume();
         getFav();
     }
+
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

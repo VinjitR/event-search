@@ -17,16 +17,17 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/eventToolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/purple_500">
 
-            <TextView
-                android:id="@+id/eventName_deta"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:text="Event Detail"
-                android:textSize="20sp">
+<!--            <TextView-->
+<!--                android:id="@+id/eventName_deta"-->
+<!--                android:layout_width="250dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Event Detail"-->
+<!--                android:textSize="20sp">-->
 
-            </TextView>
+<!--            </TextView>-->
 
             <Button
                 android:id="@+id/favoriteb"
@@ -50,7 +51,8 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/eventDetailTabs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/purple_500">
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/DetailTab"

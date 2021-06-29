@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EventSearch">
-        <activity android:name=".detailActivity"></activity>
+        <activity android:name=".detailActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
+<!--            android:parentActivityName="com.example.eventsearch.tickResults" ></activity>-->
         <activity android:name=".tickResults" />
         <activity android:name=".MainActivity">
             <intent-filter>

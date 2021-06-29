@@ -24,14 +24,13 @@ public class tickResults extends AppCompatActivity {
     private RecyclerView recyclerView;
     private TextView noSearchResult;
     boolean noResult;
+    String resultTableString;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
+    protected void onRestart() {
+        super.onRestart();
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         setContentView(R.layout.activity_tick_results);
         recyclerView = findViewById(R.id.eventTable);
@@ -40,8 +39,81 @@ public class tickResults extends AppCompatActivity {
 
         eventDList = new ArrayList<>();
 
+        resultTableString = getIntent().getExtras().getString("ticketevents");
+        try {
+            JSONObject resultTableJSON = new JSONObject(resultTableString);
+            JSONArray events = resultTableJSON.getJSONArray("events");
 
-        String resultTableString = getIntent().getExtras().getString("ticketevents");
+            if(events.length()>0){
+                for (int i = 0; i < events.length(); i++) {
+                    JSONObject oneEvent = events.getJSONObject(i);
+                    eventD eventd = new eventD();
+
+                    eventd.setEvent(oneEvent.getString("event"));
+
+
+                    eventd.setId(oneEvent.getString("id"));
+
+                    String category = oneEvent.getString("genre");
+                    String cats[] = category.split("\\|");
+                    String mainCat = cats[2].trim();
+
+                    eventd.setGenre(category);
+                    eventd.setVenue(oneEvent.getString("venue"));
+                    eventd.setDatetime(oneEvent.getString("datetime"));
+
+
+                    int catImg;
+                    if (mainCat.contains("Music") || mainCat.equals("Music") || mainCat.equals("music")) {
+                        catImg = R.drawable.music_icon;
+                    } else if (mainCat.contains("Sports") || mainCat.equals("Sports") || mainCat.equals("sports")) {
+                        catImg = R.drawable.ic_sport_icon;
+                    } else if (mainCat.contains("Arts") || mainCat.equals("Arts & Theatre") || mainCat.equals("Arts&Theatre") || mainCat.equals("arts & theatre") || mainCat.equals("arts&theatre")) {
+                        catImg = R.drawable.art_icon;
+                    } else if (mainCat.contains("Miscellaneous") || mainCat.equals("Miscellaneous") || mainCat.equals("miscellaneous")) {
+                        catImg = R.drawable.miscellaneous_icon;
+                    } else {
+                        catImg = R.drawable.film_icon;
+                    }
+                    eventd.setCatImage(catImg);
+                    Log.i("catimg", "" + catImg);
+
+                    eventd.setLatlng(oneEvent.getString("latlng"));
+
+
+                    eventDList.add(eventd);
+                }
+
+            }
+            else{
+                noResult=true;
+            }
+        } catch (JSONException e) {
+            noResult = true;
+            Log.i("ERROR", "No search result");
+        }
+
+        setRecyclerView(eventDList);
+    }
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        setContentView(R.layout.activity_tick_results);
+        recyclerView = findViewById(R.id.eventTable);
+        noSearchResult = findViewById(R.id.noSearchResult);
+        noResult = false;
+
+        eventDList = new ArrayList<>();
+
+        if(getIntent().hasExtra("ticketevents")){
+       resultTableString = getIntent().getExtras().getString("ticketevents");
         try {
             JSONObject resultTableJSON = new JSONObject(resultTableString);
             JSONArray events = resultTableJSON.getJSONArray("events");
@@ -95,6 +167,11 @@ public class tickResults extends AppCompatActivity {
             Log.i("ERROR", "No search result");
         }
 
+
+    }
+        else{
+            noResult=true;
+        }
         setRecyclerView(eventDList);
     }
     @Override

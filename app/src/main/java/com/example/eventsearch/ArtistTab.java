@@ -117,11 +117,14 @@ public class ArtistTab extends Fragment {
             TableLayout tableLayoutnr = getView().findViewById(R.id.aTablelayot);
             TextView textViewnr = new TextView(getContext());
             TableRow tableRownr = new TableRow((getContext()));
-            TableRow.LayoutParams params = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+            TableRow.LayoutParams params = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT,Gravity.CENTER);
             textViewnr.setLayoutParams(params);
             textViewnr.setText("No Records");
             tableRownr.addView(textViewnr);
+
             tableLayoutnr.addView(tableRownr);
+            textViewnr.setTextSize(18);
+            textViewnr.setPadding(20,20,20,20);
 
         } else {
 

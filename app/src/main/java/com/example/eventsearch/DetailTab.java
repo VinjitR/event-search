@@ -158,7 +158,12 @@ public class DetailTab extends Fragment {
                 LinearLayout eventTicketStatusLayout = getView().findViewById(R.id.buyticketlayot);
                 eventTicketStatusLayout.setVisibility(getView().GONE);
             }
-
+        try {
+            eSeatMap = resp.getJSONObject("seatmap").getString("staticUrl");
+        } catch (JSONException e) {
+            LinearLayout eventSeatMapLayout = getView().findViewById(R.id.seatmapLayot);
+            eventSeatMapLayout.setVisibility(getView().GONE);
+        }
 
 
             setData(artistOrTeam,eVenue,eTime,eCategory,ePriceRange,eTicketStatus,eBuyTicketAt,eSeatMap);
@@ -228,6 +233,7 @@ public class DetailTab extends Fragment {
         }
         eventBuyTicketAtTextView.setMovementMethod(LinkMovementMethod.getInstance());
 
+        Log.i("seatmap",eSeatMap);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             eventSeatMapTextView.setText(Html.fromHtml("<a href='" + eSeatMap + "' target='_blank'>View Seat Map Here</a>", Html.FROM_HTML_MODE_COMPACT));
