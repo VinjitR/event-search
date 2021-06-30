@@ -74,10 +74,6 @@ public class SearchTab extends Fragment {
     }
 
 
-
-
-    // TODO: Rename and change types and number of parameters
-
     @Override
     public void onViewCreated( @NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -101,7 +97,6 @@ public class SearchTab extends Fragment {
         selectedLoc="curloc";
 
 
-        //fusedLocationProviderClient=LocationServices.getFusedLocationProviderClient(getContext());
         //Categories
         ArrayAdapter<CharSequence> catAdapter= ArrayAdapter.createFromResource(getContext(),R.array.categories, android.R.layout.simple_spinner_item);
         catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -116,7 +111,6 @@ public class SearchTab extends Fragment {
             public void onClick(View v) {
                 othLocationIn.setText("");
                 othLocationIn.setEnabled(false);
-                //othLocationIn.setVisibility(View.GONE);
             }
         });
 
@@ -133,9 +127,7 @@ public class SearchTab extends Fragment {
             @Override
             public void onClick(View v) {
                 if (keyword.getText().toString().length() > 0) {
-//                    Log.i("Keyword: ", keywordInput.getText().toString());
                 } else {
-//                    Log.i("Keyword: ", "No input");
 
                     keyfail = true;
 
@@ -146,13 +138,10 @@ public class SearchTab extends Fragment {
 
                 if (curloc.isChecked()) {
                     selectedLoc="curloc";
-//                    Log.i("From: ", "Current Location");
                 } else if (othloc.isChecked()) {
                     selectedLoc="othloc";
                     if (othLocationIn.getText().toString().length() > 0) {
-//                        Log.i("From: ", otherLocationInput.getText().toString());
                     } else {
-//                        Log.i("From: ", "No input");
                         othfail=true;
                     }
                 }

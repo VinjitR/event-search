@@ -30,7 +30,9 @@ public class tickResults extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Search Results");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         }
         setContentView(R.layout.activity_tick_results);
         recyclerView = findViewById(R.id.eventTable);
@@ -103,6 +105,7 @@ public class tickResults extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Search Results");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
         setContentView(R.layout.activity_tick_results);
