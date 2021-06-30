@@ -34,14 +34,18 @@ public class FavoriteTab extends Fragment {
 
 
 
+
     @Override
     public void onResume() {
         super.onResume();
         getFav();
     }
 
-
-
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        getFav();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,18 +58,11 @@ public class FavoriteTab extends Fragment {
         view=inflater.inflate(R.layout.fragment_favorite_tab, container, false);
         recyclerView=view.findViewById(R.id.favrecyleviewer);
 
-
-
-
         // Inflate the layout for this fragment
+        getFav();
         return view;
     }
 
-    @Override
-    public void onViewCreated(@NonNull  View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        getFav();
-    }
 
     private void getFav() {
         faveDList=new ArrayList<>();
@@ -105,16 +102,13 @@ public class FavoriteTab extends Fragment {
                 favD.setFavdatetime(eventDatetime_Fav);
                 favD.setFavlatlng(eventLatlng_Fav);
                 favD.setFavcatImage(eventCatthumb_Fav);
-
-
                 faveDList.add(favD);
-
-
-
             }
             FavRecyclerViewAdapter favadapter = new FavRecyclerViewAdapter(view.getContext(), faveDList);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             recyclerView.setAdapter(favadapter);
+            TextView noFav = view.findViewById(R.id.noFavorite);
+            noFav.setVisibility(View.GONE);
 
 
         }
@@ -122,8 +116,6 @@ public class FavoriteTab extends Fragment {
             recyclerView.setVisibility(View.GONE);
             TextView noFav=view.findViewById(R.id.noFavorite);
             noFav.setVisibility(View.VISIBLE);
-
-
         }
 
     }

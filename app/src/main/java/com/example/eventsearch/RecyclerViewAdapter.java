@@ -23,6 +23,8 @@ import com.android.volley.RequestQueue;
 
 import java.util.List;
 
+import static java.lang.Character.isWhitespace;
+
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
     private Context mContext;
@@ -54,16 +56,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int position) {
         final eventD eventeventD = mEventData.get(position);
-
-        //better name should be coded
-        myViewHolder.eventName.setText(eventeventD.getEvent());
+        myViewHolder.eventName.setText(betterName(eventeventD.getEvent()));
         myViewHolder.venueName.setText(eventeventD.getVenue());
-
         String eventLocal_date_time = eventeventD.getDatetime();
         myViewHolder.eventTime.setText(eventLocal_date_time);
-
         myViewHolder.eventID.setText(eventeventD.getId());
         myViewHolder.eventCategory_thumbnail.setImageResource(eventeventD.getCatImage());
+
 
         Button favoriteButton = view.findViewById(R.id.favorite);
         SharedPreferences sharedPreferences = mContext.getSharedPreferences("favorite", Context.MODE_PRIVATE);
@@ -97,6 +96,35 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         });
 
     }
+
+    private String betterName(String name) {
+
+            if(name.length()>34){
+                int space_index=0;
+                char at34=name.charAt(35);
+                if(isWhitespace(at34)){
+                    return name.substring(0,31)+"...";
+                }
+                else{
+                    for(int i=0;i<name.length();i++){
+                        if (name.charAt(i)==' '){
+                            if(i>35){
+                                break;
+                            }
+                            else{
+                                space_index=i;
+                            }
+                        }
+                    }
+                    return name.substring(0,space_index)+"...";
+                }
+            }
+            else{
+                return name;
+            }
+        }
+
+
 
 
     @Override

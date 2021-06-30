@@ -4,6 +4,7 @@ import android.content.Context;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,6 +78,7 @@ public class FavRecyclerViewAdapter extends RecyclerView.Adapter<FavRecyclerView
                 mContext.startActivity(intent);
             }
         });}
+
     }
 
     private void favoriteButton(String eventName, String eventID,String eventVenue,String eventDatetime,String eventLatlng,int evecatImage, int position) {
@@ -97,6 +99,7 @@ public class FavRecyclerViewAdapter extends RecyclerView.Adapter<FavRecyclerView
     }
 
     public void removeFav(int position) {
+        Log.i("pop",""+position);
         if(mFavData.size()>=position&&mFavData.size()>0){
         mFavData.remove(position);
         notifyItemRemoved(position);
@@ -125,7 +128,6 @@ public class FavRecyclerViewAdapter extends RecyclerView.Adapter<FavRecyclerView
 
         public FavViewHolder(@NonNull View itemView) {
             super(itemView);
-
             faveventName = itemView.findViewById(R.id.favename);
             favvenueName = itemView.findViewById(R.id.favevenue);
             faveventTime = itemView.findViewById(R.id.favetime);
@@ -133,6 +135,7 @@ public class FavRecyclerViewAdapter extends RecyclerView.Adapter<FavRecyclerView
             faveventID = itemView.findViewById(R.id.faveID);
             faveventLatLng=itemView.findViewById(R.id.faveLatLng);
             favlinearLayout = itemView.findViewById(R.id.favlayot);
+
         }
 
 
